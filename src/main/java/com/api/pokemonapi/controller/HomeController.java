@@ -15,7 +15,7 @@ public class HomeController {
         return "hello world";
     }
 
-    @RequestMapping("/posts")
+    @RequestMapping("/pokemons")
     public String listAllPosts() {
         return service.getPokemonJson();
     }
