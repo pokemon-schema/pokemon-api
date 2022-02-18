@@ -32,4 +32,9 @@ public class PokemonService {
         return this.restTemplate.getForObject(url, String.class);
     }
 
+    public String findByName(String name) {
+        String url = baseUrl + "pokemon/" + name; // http://localhost:8080/pokemons/name=ditto
+        return this.restTemplate.getForObject(url, String.class);
+    }
+
 }

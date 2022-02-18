@@ -37,6 +37,11 @@ public class PokemonController {
         return service.findById(id);
     }
 
+    @RequestMapping("/pokemons/name={name}")
+    public String selectByName(@PathVariable(value = "name") String name) {
+        return service.findByName(name);
+    }
+
     // // repository
     // @Autowired
     // private PokemonRepository repository;
