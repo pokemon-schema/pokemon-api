@@ -38,7 +38,7 @@ public class PokemonService {
     // pokemon id
     public String findPokemonById(Long id) {
         String idStr = String.valueOf(id);
-        String url = this.baseUrlPokemon + idStr; // http://localhost:8080/pokemons/id/1 ///
+        String url = this.baseUrlPokemon + idStr; // http://localhost:8080/pokemons/id/1
         return this.restTemplate.getForObject(url, String.class);
     }
 
