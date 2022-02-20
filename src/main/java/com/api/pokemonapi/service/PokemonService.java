@@ -19,6 +19,7 @@ public class PokemonService {
 
     // pokemon
     String baseUrlPokemon = "https://pokeapi.co/api/v2/pokemon/";
+    String imgUrlPokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
     // ability
     String baseUrlAbility = "https://pokeapi.co/api/v2/ability/";
     // type
