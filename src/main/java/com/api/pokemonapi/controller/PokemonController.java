@@ -1,5 +1,7 @@
 package com.api.pokemonapi.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.api.pokemonapi.service.PokemonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,42 +19,34 @@ public class PokemonController {
     @Autowired
     private PokemonService service;
 
-    @RequestMapping("/")
+    @RequestMapping("/") // http://localhost:8080/
     public String helloWorld() {
         return "hello world";
     }
 
-    @RequestMapping("/pokemons")
+    @RequestMapping("/pokemon") // http://localhost:8080/pokemon
     public String listAllPokemons() {
-        return service.getPokemonJson();
+        return service.findPokemon();
     }
 
-    @RequestMapping("/pokemons/id={id}")
+    @RequestMapping("/pokemon/id/{id}") // http://localhost:8080/pokemon/id/1
     public String selectPokemonById(@PathVariable(value = "id") Long id) {
         return service.findPokemonById(id);
     }
 
-    @RequestMapping("/pokemons/name={name}")
+    @RequestMapping("/pokemon/name/{name}") // http://localhost:8080/pokemon/name/ditto
     public String selectPokemonByName(@PathVariable(value = "name") String name) {
         return service.findPokemonByName(name);
     }
 
-    @RequestMapping("/ability/id={id}")
+    @RequestMapping("/ability/id/{id}") // http://localhost:8080/ability/id/1
     public String selectAbilityById(@PathVariable(value = "id") Long id) {
         return service.findAbilityById(id);
     }
 
-    @RequestMapping("/ability/name={name}")
+    @RequestMapping("/ability/name/{name}") // http://localhost:8080/ability/name/stench
     public String selectAbilityByName(@PathVariable(value = "name") String name) {
         return service.findAbilityByName(name);
     }
 
-    // // repository
-    // @Autowired
-    // private PokemonRepository repository;
-
-    // @GetMapping("/pokemons/id={id}")
-    // public Optional<Pokemon> selectById(@PathVariable(value = "id") Long id) {
-    // return repository.findById(id);
-    // }
 }
