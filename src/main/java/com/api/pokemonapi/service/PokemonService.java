@@ -15,7 +15,7 @@ public class PokemonService {
     // pager
     Integer offset = 0;
     Integer limit = 5;
-    String pager = "?offset=" + offset + "&limit=20";
+    String pager = "?offset=" + offset + "&limit=" + limit;
 
     // pokemon
     String baseUrlPokemon = "https://pokeapi.co/api/v2/pokemon/";
