@@ -14,7 +14,7 @@ public class PokemonService {
 
     // pager
     Integer offset = 0;
-    Integer limit = 5;
+    Integer limit = 898;
     String pager = "?offset=" + offset + "&limit=" + limit;
 
     // pokemon
@@ -59,6 +59,19 @@ public class PokemonService {
     // ability name
     public String findAbilityByName(String name) {
         String url = this.baseUrlAbility + name; // http://localhost:8080/ability/name/stench
+        return this.restTemplate.getForObject(url, String.class);
+    }
+
+    // type id
+    public String findTypeById(Long id) {
+        String idStr = String.valueOf(id);
+        String url = this.baseUrlType + idStr; // http://localhost:8080/ability/id/1
+        return this.restTemplate.getForObject(url, String.class);
+    }
+
+    // type name
+    public String findTypeByName(String name) {
+        String url = this.baseUrlType + name; // http://localhost:8080/ability/name/stench
         return this.restTemplate.getForObject(url, String.class);
     }
 

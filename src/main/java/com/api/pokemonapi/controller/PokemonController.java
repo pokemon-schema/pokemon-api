@@ -19,11 +19,13 @@ public class PokemonController {
     @Autowired
     private PokemonService service;
 
+    // home api endpoint
     @RequestMapping("/") // http://localhost:8080/
     public String helloWorld() {
-        return "hello world";
+        return "pokemon-api v1.0.0 - by amyszko";
     }
 
+    // pokemon endpoints
     @RequestMapping("/pokemon") // http://localhost:8080/pokemon
     public String listAllPokemons() {
         return service.findPokemon();
@@ -39,6 +41,7 @@ public class PokemonController {
         return service.findPokemonByName(name);
     }
 
+    // ability endpoints
     @RequestMapping("/ability/id/{id}") // http://localhost:8080/ability/id/1
     public String selectAbilityById(@PathVariable(value = "id") Long id) {
         return service.findAbilityById(id);
@@ -47,6 +50,17 @@ public class PokemonController {
     @RequestMapping("/ability/name/{name}") // http://localhost:8080/ability/name/stench
     public String selectAbilityByName(@PathVariable(value = "name") String name) {
         return service.findAbilityByName(name);
+    }
+
+    // type endpoints
+    @RequestMapping("/type/id/{id}") // http://localhost:8080/type/id/1
+    public String selectTypeById(@PathVariable(value = "id") Long id) {
+        return service.findTypeById(id);
+    }
+
+    @RequestMapping("/type/name/{name}") // http://localhost:8080/type/name/stench
+    public String selectTypeByName(@PathVariable(value = "name") String name) {
+        return service.findTypeByName(name);
     }
 
 }
